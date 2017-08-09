@@ -22,9 +22,8 @@ public interface UserServer {
     /**
      * Describe: 用户注册接口
      *
-     * @param User 用户信息模型
      * @return 注册响应
      */
-    ServerResponse Register(User User);
+    ServerResponse Register(String Name, String PassWord, String Phone, String Mail);
 
 }

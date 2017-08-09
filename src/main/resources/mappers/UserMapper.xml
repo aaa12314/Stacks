@@ -53,13 +53,9 @@
     </delete>
 
     <insert id="insertUser" parameterType="cn.net.stacks.Model.User">
-        INSERT INTO user (UId, UName, UNickName, UPassWord, UGender, UPhone, UMail, UTime,
-        USecret, UState)
-        VALUES (#{UId,jdbcType=INTEGER}, #{UName,jdbcType=VARCHAR},
-        ${UNickName,jdbcType=VARCHAR},
-        #{UPassWord,jdbcType=VARCHAR}, #{UGender,jdbcType=INTEGER}, ${UPhone,jdbcType=VARCHAR},
-        #{UMail,jdbcType=VARCHAR}, #{UTime,jdbcType=VARCHAR}, ${USecret,jdbcType=VARCHAR},
-        #{UState, jdbcType = INTEGER})
+        INSERT INTO user (UId, UName, UNickName, UPassWord, UGender, UPhone, UMail, UTime, USecret, UState)
+        VALUES (#{uid}, #{uname}, #{unickname}, #{upassword}, #{ugender}, #{uphone}, #{umail}, #{utime}, #{usecret},
+                #{ustate})
     </insert>
 
 </mapper>
