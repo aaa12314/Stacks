@@ -1,6 +1,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 
--- 创建用户表
+-- 创建用户基础信息表
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `UId` int(11) NOT NULL COMMENT '用户编号',
