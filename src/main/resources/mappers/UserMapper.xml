@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.stacks.DataBase.UserMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.stacks.Model.User" >
+    <constructor >
+      <idArg column="UId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="UName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="UNickName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="UGender" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="UPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="UMail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="UTime" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="USecret" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    UId, UName, UNickName, UGender, UPhone, UMail, UTime, USecret
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where UId = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where UId = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.net.stacks.Model.User" >
+    insert into user (UId, UName, UNickName, 
+      UGender, UPhone, UMail, 
+      UTime, USecret)
+    values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{unickname,jdbcType=VARCHAR}, 
+      #{ugender,jdbcType=INTEGER}, #{uphone,jdbcType=VARCHAR}, #{umail,jdbcType=VARCHAR}, 
+      #{utime,jdbcType=VARCHAR}, #{usecret,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.stacks.Model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        UId,
+      </if>
+      <if test="uname != null" >
+        UName,
+      </if>
+      <if test="unickname != null" >
+        UNickName,
+      </if>
+      <if test="ugender != null" >
+        UGender,
+      </if>
+      <if test="uphone != null" >
+        UPhone,
+      </if>
+      <if test="umail != null" >
+        UMail,
+      </if>
+      <if test="utime != null" >
+        UTime,
+      </if>
+      <if test="usecret != null" >
+        USecret,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="unickname != null" >
+        #{unickname,jdbcType=VARCHAR},
+      </if>
+      <if test="ugender != null" >
+        #{ugender,jdbcType=INTEGER},
+      </if>
+      <if test="uphone != null" >
+        #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="umail != null" >
+        #{umail,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null" >
+        #{utime,jdbcType=VARCHAR},
+      </if>
+      <if test="usecret != null" >
+        #{usecret,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.stacks.Model.User" >
+    update user
+    <set >
+      <if test="uname != null" >
+        UName = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="unickname != null" >
+        UNickName = #{unickname,jdbcType=VARCHAR},
+      </if>
+      <if test="ugender != null" >
+        UGender = #{ugender,jdbcType=INTEGER},
+      </if>
+      <if test="uphone != null" >
+        UPhone = #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="umail != null" >
+        UMail = #{umail,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null" >
+        UTime = #{utime,jdbcType=VARCHAR},
+      </if>
+      <if test="usecret != null" >
+        USecret = #{usecret,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UId = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.stacks.Model.User" >
+    update user
+    set UName = #{uname,jdbcType=VARCHAR},
+      UNickName = #{unickname,jdbcType=VARCHAR},
+      UGender = #{ugender,jdbcType=INTEGER},
+      UPhone = #{uphone,jdbcType=VARCHAR},
+      UMail = #{umail,jdbcType=VARCHAR},
+      UTime = #{utime,jdbcType=VARCHAR},
+      USecret = #{usecret,jdbcType=VARCHAR}
+    where UId = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>
