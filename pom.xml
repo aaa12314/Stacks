@@ -1,0 +1,238 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!-- 模型版本 Go -->
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 模型版本 End -->
+
+    <!-- 项目 Group Id Go -->
+    <groupId>cn.org.stacks.ProjectTemplate</groupId>
+    <!-- 项目 Group Id End -->
+
+    <!-- 项目 Artifact Id Go -->
+    <artifactId>ProjectTemplate</artifactId>
+    <!-- 项目 Artifact Id End -->
+
+    <!-- 打包方式 Go -->
+    <packaging>war</packaging>
+    <!-- 打包方式 End -->
+
+    <!-- 项目版本 Go -->
+    <version>Beta-1.0</version>
+    <!-- 项目版本 End -->
+
+    <!-- 项目名称 Go -->
+    <name>ProjectTemplate Maven Webapp</name>
+    <!-- 项目名称 End -->
+
+    <!-- 包版本管理 Go -->
+    <properties>
+        <junit.version>4.12</junit.version>
+        <springframework.version>4.3.10.RELEASE</springframework.version>
+        <security.version>4.2.3.RELEASE</security.version>
+        <mybatis.version>3.4.4</mybatis.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mysql.version>6.0.6</mysql.version>
+        <c3p0.version>0.9.5.2</c3p0.version>
+        <log4j.version>2.8.2</log4j.version>
+        <javax.version>7.0</javax.version>
+        <gson.version>2.8.0</gson.version>
+        <fileupload.version>1.3.1</fileupload.version>
+        <io.version>2.4</io.version>
+        <code.version>1.10</code.version>
+    </properties>
+    <!-- 包版本管理 End -->
+
+    <!-- 包依赖管理 Go -->
+    <dependencies>
+
+        <!-- Junit 单元测试工具 Go -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <!-- Junit 单元测试工具 End -->
+
+        <!-- Spring Framework J2EE系统框架 Go -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <!-- Spring Framework J2EE系统框架 End -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.2.3.RELEASE</version>
+        </dependency>
+
+        <!-- MyBatis ORM框架 Go -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <!-- MyBatis ORM框架 End -->
+
+        <!-- MyBatis 兼容包 Go -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+        <!-- MyBatis 兼容包 End -->
+
+        <!-- MySQL 数据库驱动 Go -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <!-- MySQL 数据库驱动 End -->
+
+        <!-- C3P0 连接池 Go -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+        </dependency>
+        <!-- C3P0 连接池 End -->
+
+        <!-- Log4J 日志工具 Go -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- Log4J 日志工具 End -->
+
+        <!-- JSEE 基础API Go -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javax.version}</version>
+        </dependency>
+        <!-- JSEE 基础API End -->
+
+        <!-- Gson 数据解析器 Go -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+        <!-- Gson 数据解析器 End -->
+
+        <!-- 文件上传组件 Go -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${fileupload.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${code.version}</version>
+        </dependency>
+        <!-- 文件上传组件 End -->
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.10.3</version>
+        </dependency>
+
+    </dependencies>
+    <!-- 包依赖管理 End -->
+
+    <build>
+        <finalName>ProjectTemplate</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

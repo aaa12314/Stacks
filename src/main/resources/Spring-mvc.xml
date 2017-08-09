@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <!-- 自动扫描Controller注解 Go -->
+    <context:component-scan base-package="cn.net.stacks.Controller"/>
+    <!-- 自动扫描Controller注解 End -->
+
+    <!-- IE适配 Go -->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.GsonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <util:list id="beanList">
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </util:list>
+        </property>
+    </bean>
+
+    <!-- IE适配 End -->
+
+    <!-- 启用注解(3.1+ 新版注解) Go -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+
+                <!-- JSON转换器 Go -->
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+                <!-- JSON转换器 End -->
+
+            </list>
+        </property>
+    </bean>
+    <!-- 启用注解(3.1+ 新版注解) End -->
+
+    <!-- 文件上传配置 Go -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+    <!-- 文件上传配置 End -->
+
+</beans>
