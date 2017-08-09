@@ -105,8 +105,9 @@ public class Authenticator {
     }
 
     public static void main(String[] args) {
+        System.out.println(Authenticator.genSecret());
 //        System.out.println(Authenticator.getQRBarcodeURL("123","www.baidu.com","S7WUP3WBPPP4N22I"));
-        System.out.println(Authenticator.authcode("327041","S7WUP3WBPPP4N22I"));
+//        System.out.println(Authenticator.authcode("327041","S7WUP3WBPPP4N22I"));
     }
 
 }

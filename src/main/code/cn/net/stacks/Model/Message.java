@@ -1,5 +1,9 @@
 package cn.net.stacks.Model;
 
+/**
+ * 响应信息
+ * @param <T>
+ */
 public class Message<T> {
 
     private int Code;
