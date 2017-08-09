@@ -15,7 +15,7 @@ public class AliPay {
         //商户订单号，商户网站订单系统中唯一订单号，必填
         String out_trade_no = new String(String.valueOf(System.currentTimeMillis()));
         //付款金额，必填
-        String total_amount = new String("69999");
+        String total_amount = new String("288888");
         //订单名称，必填
         String subject = new String("三星量子点电视 - 72寸");
 

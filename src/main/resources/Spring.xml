@@ -15,7 +15,13 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <!-- 引入JDBC数据库配置文件 Go -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
     <!-- 引入JDBC数据库配置文件 End -->
 
     <!-- C3P0数据源配置 Go -->
@@ -53,20 +59,20 @@
 
     <!-- SqlSession工厂配置 Go -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"></property>
-        <property name="typeAliasesPackage" value="com.ssm.bean"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mappers/*.xml"/>
     </bean>
     <!-- SqlSession工厂配置 End -->
 
     <!-- 自动扫描配置 Go -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ssm.dao"></property>
+        <property name="basePackage" value="cn.net.stacks.DataBase"/>
     </bean>
     <!-- 自动扫描配置 End -->
 
     <!-- 事务管理器配置 Go -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
     <!-- 事务管理器配置 End -->
 

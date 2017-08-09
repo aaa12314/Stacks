@@ -1,10 +1,15 @@
 package cn.net.stacks.Model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * 用户信息
+ * Describe: 用户信息模型
+ *
+ * @author Kaiser.zsk
+ * @version 1.0
  */
+@SuppressWarnings("all")
 public class User {
 
     // 用户编号
@@ -18,6 +23,11 @@ public class User {
     // 用户昵称
     @SerializedName("NickName")
     private String unickname;
+
+    // 用户密码
+    @Expose(serialize=false)
+    @SerializedName("PassWord")
+    private String upassword;
 
     // 用户性别
     @SerializedName("Gender")
@@ -39,15 +49,21 @@ public class User {
     @SerializedName("Secret")
     private String usecret;
 
-    public User(Integer uid, String uname, String unickname, Integer ugender, String uphone, String umail, String utime, String usecret) {
+    // 用户状态
+    @SerializedName("State")
+    private Integer ustate;
+
+    public User(Integer uid, String uname, String unickname, String upassword, Integer ugender, String uphone, String umail, String utime, String usecret, Integer ustate) {
         this.uid = uid;
         this.uname = uname;
         this.unickname = unickname;
+        this.upassword = upassword;
         this.ugender = ugender;
         this.uphone = uphone;
         this.umail = umail;
         this.utime = utime;
         this.usecret = usecret;
+        this.ustate = ustate;
     }
 
     public User() {
@@ -76,6 +92,14 @@ public class User {
 
     public void setUnickname(String unickname) {
         this.unickname = unickname == null ? null : unickname.trim();
+    }
+
+    public String getUpassword() {
+        return upassword;
+    }
+
+    public void setUpassword(String upassword) {
+        this.upassword = upassword == null ? null : upassword.trim();
     }
 
     public Integer getUgender() {
@@ -116,5 +140,13 @@ public class User {
 
     public void setUsecret(String usecret) {
         this.usecret = usecret == null ? null : usecret.trim();
+    }
+
+    public Integer getUstate() {
+        return ustate;
+    }
+
+    public void setUstate(Integer ustate) {
+        this.ustate = ustate;
     }
 }

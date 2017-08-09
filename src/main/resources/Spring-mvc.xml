@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!-- 自动扫描Controller注解 Go -->
-    <context:component-scan base-package="cn.net.stacks.Controller"/>
+    <context:component-scan base-package="cn.net.stacks"/>
     <!-- 自动扫描Controller注解 End -->
 
     <!-- IE适配 Go -->
