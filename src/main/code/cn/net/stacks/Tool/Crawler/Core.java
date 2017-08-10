@@ -20,6 +20,16 @@ import java.util.regex.Pattern;
  */
 public class Core {
 
+    public static void main(String[] args) {
+         Document Dom = AnalysisPageDom(Request.EstablishHttpGet("http://hotels.ctrip.com/domestic-city-hotel.html","utf-8"));
+        List<String> Link = new ArrayList<String>();
+        Elements dom = Dom.select(".pinyin_filter_detail.layoutfix dd a");
+        for (Element a : dom) {
+            Link.add(a.attr("href"));
+        }
+        System.out.println(Link.size());
+    }
+
     /**
      * zh-CN: 解析字节流获取页面Dom对象
      * <br>en-US: Parse byte stream to get page Dom object

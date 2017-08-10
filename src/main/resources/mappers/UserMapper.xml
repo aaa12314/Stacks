@@ -26,11 +26,19 @@
         from user where UPhone = #{Phone,jdbcType=VARCHAR}
     </select>
 
+    <select id="selectUserForPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(1) from user where UPhone = #{Phone,jdbcType=VARCHAR}
+    </select>
+
     <select id="selectUserMessageForMail" parameterType="java.lang.String"
             resultMap="BaseResultMap">
         select
         <include refid="UserMSG"/>
         from user where UMail = #{Mail,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectUserForMail" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(1) from user where UMail = #{Mail,jdbcType=VARCHAR}
     </select>
 
     <select id="selectUserMessageForName" parameterType="java.lang.String"
@@ -40,11 +48,19 @@
         from user where UName = #{Name,jdbcType=VARCHAR}
     </select>
 
+    <select id="selectUserForName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(1) from user where UName = #{Name,jdbcType=VARCHAR}
+    </select>
+
     <select id="selectUserMessageForId" parameterType="java.lang.String"
             resultMap="BaseResultMap">
         select
         <include refid="UserMSG"/>
         from user where UId = #{Id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectUserForId" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(1) from user where UId = #{Id,jdbcType=VARCHAR}
     </select>
 
     <delete id="deleteUserForId" parameterType="java.lang.Integer">
@@ -53,9 +69,8 @@
     </delete>
 
     <insert id="insertUser" parameterType="cn.net.stacks.Model.User">
-        INSERT INTO user (UId, UName, UNickName, UPassWord, UGender, UPhone, UMail, UTime, USecret, UState)
-        VALUES (#{uid}, #{uname}, #{unickname}, #{upassword}, #{ugender}, #{uphone}, #{umail}, #{utime}, #{usecret},
-                #{ustate})
+        INSERT INTO user (UId, UName, UNickName, UPassWord, UGender, UPhone, UMail, UTime, UState)
+        VALUES (#{uid}, #{uname}, #{unickname}, #{upassword}, #{ugender}, #{uphone}, #{umail}, #{utime}, #{ustate})
     </insert>
 
 </mapper>

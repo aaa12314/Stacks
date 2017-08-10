@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Alipay (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/code/cn/net/stacks/Tool/PayServer/Alipay.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

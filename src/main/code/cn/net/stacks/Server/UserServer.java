@@ -17,7 +17,7 @@ public interface UserServer {
      * @param PassWord 用户账户密码
      * @return 登录响应 - 包含用户信息
      */
-    ServerResponse<User> Login(String Identification, String PassWord);
+    ServerResponse Login(String Identification, String PassWord);
 
     /**
      * Describe: 用户注册接口

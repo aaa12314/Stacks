@@ -11,13 +11,10 @@ public class Core {
 
     private static Gson gson = new Gson();
 
-    public static void Issue() throws UnsupportedEncodingException {
-
-        Token token = new Token(365,"8888888","张书恺","13249846631","admin@stacks.net.cn","admin");
+    public static String Issue(int Expiration,String Id,String Name,String Phone,String Mail,String Jurisdiction) throws UnsupportedEncodingException {
+        Token token = new Token(Expiration,Id,Name,Phone,Mail,Jurisdiction);
         String des = DES.Encryption(gson.toJson(token), "nXpRhq743NM=");
-        String base64 = Base64.Encryption(des);
-        System.out.println(base64);
-
+        return Base64.Encryption(des);
     }
 
     public static void Verification(String token) throws UnsupportedEncodingException {
@@ -30,7 +27,7 @@ public class Core {
 
     public static void main(String[] args) {
         try {
-            Verification("NmVjYmQ1ZTliNDc5ZTA5NjA1MTg3MDNkYmRlZjJlMjMwNTczOGU1MGFiMjM2YWEwZGU3ZGQxN2EzMDZmNjg3NWY4ZGJiN2QzZmE1NjY0ZTFmMmZlYjdkZGM0MTYzNmI0MDkzYjMxMTc3ZjQxOTQzYjAzYzk2MDI5ZWU3MzFiOWJiN2I3MGNlN2QwMjc0OWNmNDY5MmE2NDNlNmU4NWY2NTExNDU3Yjc2YzIxZjg2MjkwNjc0ZmNjMTA0OTA5ZWM5MmY1MzI5OGFlNGE0NmE1ZmJmZGE1NzM2NjVkNmZlZDU5ZDgxODYzNmNhZmEyN2ZiZmY2N2M4NmE0MmUxOThhZTU3NjhkMTU2YzJlYjdmMjk5OTU2OThiNjA4NzhmMWRlMjZjOGQ5YzM1MjhjMTAwM2I2MDE4Yzc4OTEwZGRmOGEzYjg3NzQ4YWM3OWNhYTEwNDkxYjcxODg1MWFjMDI2NDNiY2ViMTBlMjBkODA0NDEzZTk3MmFhMTFiM2FlNjAy");
+            Verification("NmVjYmQ1ZTliNDc5ZTA5NjA1MTg3MDNkYmRlZjJlMjMwNTczOGU1MGFiMjM2YWEwZGU3ZGQxN2EzMDZmNjg3NWY4ZGJiN2QzZmE1NjY0ZTFhZTA4OTcwY2VhMzk4NzViYzU4ODdkNTQ0ZWZlZDQwZDAzYzk2MDI5ZWU3MzFiOWIzMDkxNGM1YzEwODBhMzc1MGNmNWYyMDkwNzlhNWQwZGEwODgyNzdkZjUyMzc3YmIyY2Y4ODI3Njc3MWQwODM4MDRjMjZmYmZkY2JjZjg4MmY4NzRjMzVlZjZkNzQ0MTkwYWRmYTkyYzgwY2JiMjhiOTQwZTBkOGM1NjlkYWQ2N2Y2NDAwYWNlNDliZjIxMjhkMzg4YWQ2MTliYmExMGYyOWU4YzMyNWQyYWRmZDhkZTY5NzdlMzU5YTdmMTdkNWRiMzQ4Y2MwZGFiMWFjNmZmNjRhNGNjOWNmODNkOWE3NjgyMGRhYWJkY2E5ZWY5NmE=");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
